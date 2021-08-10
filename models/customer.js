@@ -3,15 +3,29 @@ const mongoose = require('mongoose');
 
 const customerSchema = new mongoose.Schema({
 
-    email:String,
+    email:{
+        type:String,
+        require:true,
+        unique:true
+    },
     product:[{
-        name:String,
-        price:Int32,
-        currentPrice:{
-            type:Int32,
-            defualt:0
+        name:{
+            type:String,
+            require:true
         },
-        Time: new Date(),
+        available:{
+            type:Boolean,
+            require:true
+        },
+        initialPrice:Number,
+        currentPrice:{
+            type:Number,
+            default:2
+        },
+        Time: {
+            type:Date,
+            default:new Date()
+        },
         url:String,
         
     }]
