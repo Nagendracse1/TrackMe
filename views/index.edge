@@ -1,0 +1,68 @@
+@layout('layouts.app')
+
+@section('content')
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="hero-container">
+    <h1>Welcome to TrackMe</h1>
+    <h2>Please, fill out the for below to be notified. </h2>
+
+    <form action="forms/scrap method="post" role="form" class="email-form">
+      <div class="row no-gutters">
+        <div class="col-md-6 form-group pr-md-1">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Product url" required>
+        </div>
+        
+        <div class="col-md-6 form-group pl-md-1">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+        </div>
+    
+      </div>
+
+      <div class="my-3">
+        <div class="loading">Loading</div>
+        <div class="error-message"></div>
+        <div class="sent-message">Your notification request was sent. Thank you!</div>
+      </div>
+      <div class="text-center"><button type="submit">Notify me!</button></div>
+    </form>
+  </div>
+</section><!-- #hero -->
+
+<main id="main">
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-6">
+          <img src="assets/img/about-img.jpg" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <h3>TrackMe</h3>
+          <p class="fst-italic">
+            Get the Product at best price.
+          </p>
+          <ul>
+            <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+            <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+            <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+          </ul>
+          <p>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Section -->
+
+  
+
+
+
+@endsection
