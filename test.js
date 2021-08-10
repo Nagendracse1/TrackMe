@@ -15,7 +15,7 @@ Post.create({
     },{
         initialPrice:146,
         name:'Apple',
-        url:'http//localhost/app',
+        url:'http//localhost/ap',
         available:true
     }]
 },(err, post)=>{
