@@ -20,7 +20,7 @@ const customerSchema = new mongoose.Schema({
         initialPrice:Number,
         currentPrice:{
             type:Number,
-            default:2
+            default:99999999
         },
         Time: {
             type:Date,

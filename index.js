@@ -13,14 +13,18 @@ const app = new express();
 
 app.use(express.static('public'));
 app.use(engine);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+
 
 app.set('views',`${__dirname}/views`);
 
 
 const homePageController = require('./controllers/homePage');
-
+const storeController = require('./controllers/storeProductDetails');
 
 app.get('/',homePageController);
+app.post('/form/store',storeController);
 
 
 app.listen(1007,()=>{
