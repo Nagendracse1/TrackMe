@@ -26,7 +26,11 @@ const customerSchema = new mongoose.Schema({
             type:Date,
             default:new Date()
         },
-        url:String,
+        url:{
+            type:String,
+            // unique:true,
+            require:true,
+        }
         
     }]
 })

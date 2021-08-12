@@ -6,18 +6,19 @@ const Post = require('./models/customer');
 
 Post.create({
     email:'nagendra@gmail.com',
-    product: [{
-        initialPrice:199,
-        name:'Moto',
-        url:'http//localhost',
-        available:true
+    // product: [{
+    //     initialPrice:199,
+    //     name:'Moto',
+    //     url:'http//localhost',
+    //     available:true
 
-    },{
-        initialPrice:146,
-        name:'Apple',
-        url:'http//localhost/app',
-        available:true
-    }]
+    // },{
+    //     initialPrice:146,
+    //     name:'Apple',
+    //     url:'http//localhost/app',
+    //     available:true
+    // }]
 },(err, post)=>{
+    if(err) console.log(err)
     console.log(post)
 })
