@@ -1,4 +1,5 @@
 const amazonScrapper = require('../Scrapper/amazon');
+//const flipkartScrapper = require('../Scrapper/flipkart');
 const customer = require('../models/customer');
 
 module.exports = async (req, res)=>{
@@ -23,6 +24,7 @@ module.exports = async (req, res)=>{
 
     // console.log(await amazonScrapper(req.body.url))
     var product = await amazonScrapper(req.body.url);
+    //var product = await flipkartScrapper(req.body.url);
     console.log(product);
 
      customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},(err, cus)=>{
@@ -34,4 +36,19 @@ module.exports = async (req, res)=>{
     // customer.create(await amazonScrapper)
     
     res.redirect('/');
-}
+    }
+
+// // console.log(await flipkartScrapper(req.body.url))
+// var product = await flipkartScrapper(req.body.url);
+// console.log(product);
+
+//  customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},(err, cus)=>{
+//      if(err) throw err
+//      console.log(cus)
+//  });
+
+
+// // customer.create(await flipkartScrapper)
+
+// res.redirect('/');
+//}
