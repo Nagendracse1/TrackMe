@@ -8,7 +8,7 @@ module.exports = async (req, res)=>{
     await customer.find({email:req.body.email}, (err, cus)=>{
         if(err) throw err;
         check =cus[0]
-        console.log('-----check---',cus);
+        // console.log('-----check---',cus);
     });
 
     if(!check){
@@ -16,18 +16,18 @@ module.exports = async (req, res)=>{
         console.log('---condition passed---');
         customer.create({email:req.body.email}, (err, cus)=>{
             if(err) throw err;
-            console.log(cus);
+            // console.log(cus);
         });
 
     }
 
     // console.log(await amazonScrapper(req.body.url))
     var product = await amazonScrapper(req.body.url);
-    console.log(product);
+    // console.log(product);
 
      customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},(err, cus)=>{
          if(err) throw err
-         console.log(cus)
+        //  console.log(cus)
      });
 
 

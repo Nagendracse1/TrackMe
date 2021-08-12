@@ -16,19 +16,25 @@ module.exports = async (url)=>{
 
         const $ = cheerio.load(body);
 
-        var price = $('#priceblock_ourprice').text().trim().slice(1);
+        var price1 = $('#priceblock_ourprice').text().trim().slice(1);
+        var price2 = $('#priceblock_dealprice').text().trim().slice(1);
         name = $('#productTitle').text().trim();
         available = $('#availability > span').text().trim();
-        
-        for(let i=0; i<price.length; i++){
 
-            if(price[i] !=',' || price[i]=='.'){
-                initialPrice +=price[i]
+        var finalprice;
+
+        if(price1) finalprice = price1;
+        else finalprice = price2;
+        
+        for(let i=0; i<finalprice.length; i++){
+
+            if(finalprice[i] !=',' || finalprice[i]=='.'){
+                initialPrice +=finalprice[i]
                 // console.log(typeof price[i],price[i],typeof initialPrice, initialPrice);
             }
         }
         initialPrice = Number(initialPrice)
-        // console.log(price,typeof price,initialPrice, typeof initialPrice);
+        console.log(finalprice,typeof finalprice,initialPrice, typeof initialPrice);
 
         if(available =='In stock.'){
             available = true
@@ -38,3 +44,6 @@ module.exports = async (url)=>{
     })
     return {initialPrice:initialPrice,name:name,available:available, url:url};
 }
+
+// #priceblock_dealprice
+// priceblock_ourprice
