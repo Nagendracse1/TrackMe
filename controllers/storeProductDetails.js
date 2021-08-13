@@ -1,21 +1,41 @@
 const amazonScrapper = require('../Scrapper/amazon');
-//const flipkartScrapper = require('../Scrapper/flipkart');
+const flipkartScrapper = require('../Scrapper/flipkart');
 const customer = require('../models/customer');
 
 module.exports = async (req, res)=>{
-    console.log(req.body.email);
+    console.log('\n\n\n----',req.body.email);
+
+    var urlType = req.body.url;
+
+    if(urlType.startsWith("https://www.amazon.in/")){
+
+        var product = await amazonScrapper(req.body.url);
+
+    }
+    else if(urlType.startsWith("https://www.flipkart.com/")){
+
+        var product = await flipkartScrapper(req.body.url);
+    }
+    else if(urlType.startsWith("https://www.myntra.com/")){
+
+        // var product = await myntraScrapper(req.body.url);
+    }
+    else{
+        throw error;
+    }
+    console.log('----scrapping done----')
 
     var check
     await customer.find({email:req.body.email}, (err, cus)=>{
         if(err) throw err;
         check =cus[0]
-        // console.log('-----check---',cus);
+        console.log('-----email already exist---');
     });
 
     if(!check){
 
-        console.log('---condition passed---');
-        customer.create({email:req.body.email}, (err, cus)=>{
+        console.log('---storing new email---');
+        await customer.create({email:req.body.email}, (err, cus)=>{
             if(err) throw err;
             // console.log(cus);
         });
@@ -23,13 +43,13 @@ module.exports = async (req, res)=>{
     }
 
     // console.log(await amazonScrapper(req.body.url))
-    var product = await amazonScrapper(req.body.url);
-    //var product = await flipkartScrapper(req.body.url);
+    
+    //
     console.log(product);
 
      customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},(err, cus)=>{
          if(err) throw err
-        //  console.log(cus)
+        console.log("---Details stored in db---");
      });
 
 
@@ -38,17 +58,3 @@ module.exports = async (req, res)=>{
     res.redirect('/');
     }
 
-// // console.log(await flipkartScrapper(req.body.url))
-// var product = await flipkartScrapper(req.body.url);
-// console.log(product);
-
-//  customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},(err, cus)=>{
-//      if(err) throw err
-//      console.log(cus)
-//  });
-
-
-// // customer.create(await flipkartScrapper)
-
-// res.redirect('/');
-//}
