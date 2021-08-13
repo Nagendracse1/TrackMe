@@ -69,8 +69,26 @@ const request = require('request');
 //     console.log(price, "\n", productName, "\n", available, "\n"); 
 // });
 
-request('https://www.myntra.com/mobile-stand', function (error, response, body) {
-  console.log('-----myntra----');
+// request('https://www.myntra.com/mobile-stand', function (error, response, body) {
+//   console.log('-----myntra----');
+//   console.error('error:', error); // Print the error if one occurred
+//   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+//   // console.log('body:', body); // Print the HTML for the Google homepage.
+//   fs.writeFileSync('try.txt',body);
+//   const $ =cheerio.load(body);
+//     // console.log(response.body);
+//     console.log('-------');
+//     // fs.writeFileSync('try.txt',response.body);
+//     //#mountRoot > div > div > div > main > div.pdp-details.common-clearfix > div.pdp-description-container > div.pdp-price-info > p.pdp-discount-container > span > strong
+//     const price = $('#mountRoot > div > div > div > main > div.pdp-details.common-clearfix > div.pdp-description-container > div.pdp-price-info > p.pdp-discount-container > span.pdp-price > strong').text();
+//     const productName = $('#mountRoot > div > div > div > main > div.pdp-details.common-clearfix > div.pdp-description-container > div.pdp-price-info > h1.pdp-name').text().trim();
+//     //const available = $('#mountRoot > div > div > div > main > div.pdp-details.common-clearfix > div.pdp-description-container > div:nth-child(3) > div > div.pdp-add-to-bag.pdp-button.pdp-flex.pdp-center.pdp-out-of-stock').text().trim();
+//     //console.log(price, "\n", productName, "\n", available, "\n")
+//     console.log(price, "\n", productName, "\n")
+// });
+
+request('https://www.nykaa.com/savlon-disinfectant-liquid/p/262959?pps=2&productId=262959&ptype=product&root=cav_pd&skuId=262957', function (error, response, body) {
+  console.log('-----nykaa----');
   console.error('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   // console.log('body:', body); // Print the HTML for the Google homepage.
@@ -80,8 +98,8 @@ request('https://www.myntra.com/mobile-stand', function (error, response, body) 
     console.log('-------');
     // fs.writeFileSync('try.txt',response.body);
     //#mountRoot > div > div > div > main > div.pdp-details.common-clearfix > div.pdp-description-container > div.pdp-price-info > p.pdp-discount-container > span > strong
-    const price = $('#mountRoot > div > div > div > main > div.pdp-details.common-clearfix > div.pdp-description-container > div.pdp-price-info > p.pdp-discount-container > span.pdp-price > strong').text();
-    const productName = $('#mountRoot > div > div > div > main > div.pdp-details.common-clearfix > div.pdp-description-container > div.pdp-price-info > h1.pdp-name').text().trim();
+    const price = $('#app > div > div > div:nth-child(1) > div:nth-child(2) > div.clearfix.wrapper-parent > div > div.container > div.row.product_description > div.col-md-7.col-sm-7.product-description-wrap > div > div.m-content__product-des__details > div.product-des__details-price > div.clearfix.product-des__details > div > div > span:nth-child(2) > span').text();
+    const productName = $('#app > div > div > div:nth-child(1) > div:nth-child(2) > div.clearfix.wrapper-parent > div > div.container > div.row.product_description > div.col-md-7.col-sm-7.product-description-wrap > div > div.m-content__product-des__details > div.product-des__details-title > h1').text().trim();
     //const available = $('#mountRoot > div > div > div > main > div.pdp-details.common-clearfix > div.pdp-description-container > div:nth-child(3) > div > div.pdp-add-to-bag.pdp-button.pdp-flex.pdp-center.pdp-out-of-stock').text().trim();
     //console.log(price, "\n", productName, "\n", available, "\n")
     console.log(price, "\n", productName, "\n")
