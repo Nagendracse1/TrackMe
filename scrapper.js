@@ -36,7 +36,8 @@ const cheerio = require('cheerio');
 const request = require('request');
 
 
-request('https://www.amazon.in/dp/B07P6FV9XV/ref=s9_acsd_al_bw_c2_x_0_i?pf_rd_m=A1K21FY43GMZ[…]f_rd_p=c52725a8-2f8f-4f19-8f2d-adff42acf701&pf_rd_i=3474656031', function (error, response, body) {
+request(encodeURI('https://www.amazon.in/dp/B07P6FV9XV/ref=s9_acsd_al_bw_c2_x_0_i?pf_rd_m=A1K21FY43GMZ[%E2%80%A6]f_rd_p=c52725a8-2f8f-4f19-8f2d-adff42acf701&pf_rd_i=3474656031'), function (error, response, body) {
+  console.log('-----amazon----');
   console.error('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   // console.log('body:', body); // Print the HTML for the Google homepage.
@@ -44,15 +45,16 @@ request('https://www.amazon.in/dp/B07P6FV9XV/ref=s9_acsd_al_bw_c2_x_0_i?pf_rd_m=
   const $ =cheerio.load(body);
     // console.log(response.body);
     console.log('-------');
-    // fs.writeFileSync('try.txt',response.body);
-    // const price = $('#priceblock_ourprice').text();
-    // const productName = $('#productTitle').text().trim();
-    // const available = $('#availability > span').text().trim();
-    // console.log(price, "\n",productName, "\n",available, "\n"); 
+    fs.writeFileSync('try.txt',response.body);
+    const price = $('#priceblock_ourprice').text();
+    const productName = $('#productTitle').text().trim();
+    const available = $('#availability > span').text().trim();
+    console.log(price, "\n",productName, "\n",available, "\n"); 
 });
 
 
 request('https://www.flipkart.com/harvard-full-sleeve-solid-men-jacket/p/itmed3a778baf007?pid=JCKFHHRNH6PYWRED&lid=LSTJCKFHHRNH6PYWREDDQ6ZVH', function (error, response, body) {
+  console.log('-----flipkart-----')
   console.error('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   // console.log('body:', body); // Print the HTML for the Google homepage.
