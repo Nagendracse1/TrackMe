@@ -10,7 +10,6 @@ module.exports = async (req, res)=>{
     if(urlType.startsWith("https://www.amazon.in/")){
 
         var product = await amazonScrapper(encodeURI(req.body.url));
-
     }
     else if(urlType.startsWith("https://www.flipkart.com/")){
 
@@ -26,14 +25,14 @@ module.exports = async (req, res)=>{
     console.log('----scrapping done----')
 
     var check
-    await customer.find({email:req.body.email}, (err, cus)=>{
-        if(err) throw err;
-        check =cus[0]
-        // console.log(check,'-----c----',cus)
-        if(cus[0]) console.log('-----email already exist---');
-    });
+    var check = await customer.find({email:req.body.email}
+        // if(err) throw err;
+        // check =cus[0]
+        // console.log(check,'-----c----',cus)    
+    );
+    if(check[0]) console.log('-----email already exist---');
 
-    if(!check){
+    if(!check[0]){
         var temp
         console.log('---storing new email---');
         var c= await customer.create({email:req.body.email});
@@ -41,9 +40,7 @@ module.exports = async (req, res)=>{
 
     }
 
-    // console.log(await amazonScrapper(req.body.url))
     
-    //
     // console.log(product);
 
      customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},(err, cus)=>{
