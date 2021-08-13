@@ -36,7 +36,7 @@ const cheerio = require('cheerio');
 const request = require('request');
 
 
-request('https://www.amazon.in/Proffisy-Adjustable-Compatible-iPhone12-Smartphones/dp/B08QYXRQ6V/ref=sr_1_1_sspa?dchild=1&keywords=mobile+stand&qid=1628743841&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzT0MzWlo4QVZES0kwJmVuY3J5cHRlZElkPUEwODYyOTcwM1JLMzU0QzM5VFJXSiZlbmNyeXB0ZWRBZElkPUEwMjM5ODgxMzNFSDVSQlZJV1hRTCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=', function (error, response, body) {
+request('https://www.amazon.in/Amazon-Brand-Jam-Honey-Rabbit/dp/B085D4TC49/ref=sr_1_7?dchild=1&pd_rd_r=35c76ae2-4d66-406f-a1c0-61a911951bb1&pd_rd_w=Uar8O&pd_rd_wg=JskD9&pf_rd_p=98768e38-53fa-4b0a-afe2-51d2c3c71911&pf_rd_r=J4CWR37HBJZEQH4K4C7B&qid=1628767895&refinements=p_n_is_private_label%3A16184648031&rnid=1350381031&s=toys&sr=1-7', function (error, response, body) {
   console.error('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   // console.log('body:', body); // Print the HTML for the Google homepage.
@@ -46,6 +46,7 @@ request('https://www.amazon.in/Proffisy-Adjustable-Compatible-iPhone12-Smartphon
     console.log('-------');
     // fs.writeFileSync('try.txt',response.body);
     const price = $('#priceblock_ourprice').text();
+    
     const productName = $('#productTitle').text().trim();
     const available = $('#availability > span').text().trim();
     console.log(price, "\n",productName, "\n",available, "\n"); 
