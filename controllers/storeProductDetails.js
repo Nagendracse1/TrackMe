@@ -29,27 +29,26 @@ module.exports = async (req, res)=>{
     await customer.find({email:req.body.email}, (err, cus)=>{
         if(err) throw err;
         check =cus[0]
-        console.log('-----email already exist---');
+        // console.log(check,'-----c----',cus)
+        if(cus[0]) console.log('-----email already exist---');
     });
 
     if(!check){
-
+        var temp
         console.log('---storing new email---');
-        await customer.create({email:req.body.email}, (err, cus)=>{
-            if(err) throw err;
-            // console.log(cus);
-        });
+        var c= await customer.create({email:req.body.email});
+        console.log(c,'-----new email stored----');
 
     }
 
     // console.log(await amazonScrapper(req.body.url))
     
     //
-    console.log(product);
+    // console.log(product);
 
      customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},(err, cus)=>{
          if(err) throw err
-        console.log("---Details stored in db---");
+         if(cus) console.log("---Details stored in db---");
      });
 
 
