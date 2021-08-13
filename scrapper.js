@@ -36,11 +36,7 @@ const cheerio = require('cheerio');
 const request = require('request');
 
 
-<<<<<<< HEAD
 request('https://www.amazon.in/Amazon-Brand-Jam-Honey-Rabbit/dp/B085D4TC49/ref=sr_1_7?dchild=1&pd_rd_r=35c76ae2-4d66-406f-a1c0-61a911951bb1&pd_rd_w=Uar8O&pd_rd_wg=JskD9&pf_rd_p=98768e38-53fa-4b0a-afe2-51d2c3c71911&pf_rd_r=J4CWR37HBJZEQH4K4C7B&qid=1628767895&refinements=p_n_is_private_label%3A16184648031&rnid=1350381031&s=toys&sr=1-7', function (error, response, body) {
-=======
-request('https://www.amazon.in/dp/B07P6FV9XV/ref=s9_acsd_al_bw_c2_x_0_i?pf_rd_m=A1K21FY43GMZ[…]f_rd_p=c52725a8-2f8f-4f19-8f2d-adff42acf701&pf_rd_i=3474656031', function (error, response, body) {
->>>>>>> 4891a309116302f6d169518f0d0d224378a8f5b7
   console.error('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   // console.log('body:', body); // Print the HTML for the Google homepage.
@@ -49,18 +45,11 @@ request('https://www.amazon.in/dp/B07P6FV9XV/ref=s9_acsd_al_bw_c2_x_0_i?pf_rd_m=
     // console.log(response.body);
     console.log('-------');
     // fs.writeFileSync('try.txt',response.body);
-<<<<<<< HEAD
     const price = $('#priceblock_ourprice').text();
     
     const productName = $('#productTitle').text().trim();
     const available = $('#availability > span').text().trim();
     console.log(price, "\n",productName, "\n",available, "\n"); 
-=======
-    // const price = $('#priceblock_ourprice').text();
-    // const productName = $('#productTitle').text().trim();
-    // const available = $('#availability > span').text().trim();
-    // console.log(price, "\n",productName, "\n",available, "\n"); 
->>>>>>> 4891a309116302f6d169518f0d0d224378a8f5b7
 });
 
 
