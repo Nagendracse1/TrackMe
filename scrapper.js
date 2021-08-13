@@ -36,7 +36,7 @@ const cheerio = require('cheerio');
 const request = require('request');
 
 
-request('https://www.amazon.in/Proffisy-Adjustable-Compatible-iPhone12-Smartphones/dp/B08QYXRQ6V/ref=sr_1_1_sspa?dchild=1&keywords=mobile+stand&qid=1628743841&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzT0MzWlo4QVZES0kwJmVuY3J5cHRlZElkPUEwODYyOTcwM1JLMzU0QzM5VFJXSiZlbmNyeXB0ZWRBZElkPUEwMjM5ODgxMzNFSDVSQlZJV1hRTCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=', function (error, response, body) {
+request('https://www.amazon.in/dp/B07P6FV9XV/ref=s9_acsd_al_bw_c2_x_0_i?pf_rd_m=A1K21FY43GMZ[…]f_rd_p=c52725a8-2f8f-4f19-8f2d-adff42acf701&pf_rd_i=3474656031', function (error, response, body) {
   console.error('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   // console.log('body:', body); // Print the HTML for the Google homepage.
@@ -45,10 +45,10 @@ request('https://www.amazon.in/Proffisy-Adjustable-Compatible-iPhone12-Smartphon
     // console.log(response.body);
     console.log('-------');
     // fs.writeFileSync('try.txt',response.body);
-    const price = $('#priceblock_ourprice').text();
-    const productName = $('#productTitle').text().trim();
-    const available = $('#availability > span').text().trim();
-    console.log(price, "\n",productName, "\n",available, "\n"); 
+    // const price = $('#priceblock_ourprice').text();
+    // const productName = $('#productTitle').text().trim();
+    // const available = $('#availability > span').text().trim();
+    // console.log(price, "\n",productName, "\n",available, "\n"); 
 });
 
 
