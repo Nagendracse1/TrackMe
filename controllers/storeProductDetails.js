@@ -9,16 +9,16 @@ module.exports = async (req, res)=>{
 
     if(urlType.startsWith("https://www.amazon.in/")){
 
-        var product = await amazonScrapper(req.body.url);
+        var product = await amazonScrapper(encodeURI(req.body.url));
 
     }
     else if(urlType.startsWith("https://www.flipkart.com/")){
 
-        var product = await flipkartScrapper(req.body.url);
+        var product = await flipkartScrapper(encodeURI(req.body.url));
     }
     else if(urlType.startsWith("https://www.myntra.com/")){
 
-        // var product = await myntraScrapper(req.body.url);
+        // var product = await myntraScrapper(encodeURI(req.body.url));
     }
     else{
         throw error;
