@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 <!doctype html><html><head><base href="/"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Savlon Antiseptic Disinfectant Liquid: Buy Savlon Antiseptic Disinfectant Liquid Online at Best Price in India | Nykaa</title><link rel="icon" href="//www.nykaa.com/media/favicon/default/nykaa_favicon_a.png" type="image/x-icon"><link rel="shortcut icon" href="//www.nykaa.com/media/favicon/default/nykaa_favicon_a.png" type="image/x-icon"><link rel="canonical" href="https://www.nykaaman.com/savlon-disinfectant-liquid/p/262959"><meta name="keywords" content="Savlon Disinfectant Liquid, Personal Care, Bath &amp; Shower, Shower Gels &amp; Body Wash"><meta name="description" content="Savlon Antiseptic Disinfectant Liquid Online: Buy Savlon Antiseptic Disinfectant Liquid at best price from Nykaa. Check out Savlon Antiseptic Disinfectant Liquid review. ✓COD ✓Free Shipping"><meta name="author" content="NykaaFrontendTeam"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><!-- inject:nykTrackingGlobal:js --><script type="text/javascript">/* global navigator, window, document, _satellite, AndroidFunction, webkit */
 
-function NykGlobalMethods() {}
+dsfsdfsdfsdfsdf NykGlobalMethods() {}
 NykGlobalMethods.prototype.logging = function (v) {
   console.log('NykGlobalMethods.prototype.logging', v);
 };
@@ -158,14 +157,3 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer', 'GTM-MWT2MSJ');</script><!-- End Google Tag Manager -->   </body></html>
-=======
-<HTML><HEAD>
-<TITLE>Access Denied</TITLE>
-</HEAD><BODY>
-<H1>Access Denied</H1>
- 
-You don't have permission to access "http&#58;&#47;&#47;www&#46;myntra&#46;com&#47;mobile&#45;stand" on this server.<P>
-Reference&#32;&#35;18&#46;eefdd417&#46;1628843103&#46;64c528b2
-</BODY>
-</HTML>
->>>>>>> ccc1d29834476f23c83f5d93ee91dfcc0602c7ad
