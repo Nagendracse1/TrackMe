@@ -1,6 +1,8 @@
 const amazonScrapper = require('../Scrapper/amazon');
 const flipkartScrapper = require('../Scrapper/flipkart');
 const customer = require('../models/customer');
+const notificationMail = require('../API/notificationMail');
+const subscribedMail = require('../API/subscriptionMail');
 
 module.exports = async (req, res)=>{
     console.log('\n\n\n----',req.body.email);
@@ -43,10 +45,21 @@ module.exports = async (req, res)=>{
     
     // console.log(product);
 
-     customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},(err, cus)=>{
+      customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},async(err, cus)=>{
          if(err) throw err
-         if(cus) console.log("---Details stored in db---");
+         if(cus){
+              console.log("---Details stored in db---");
+
+              console.log('---sending notification---');
+
+              console.log(await subscribedMail({name:product.name, email:cus.email, price:product.initialPrice, url:product.url})); 
+
+              console.log('----notification sent----');              
+
+         }
      });
+
+
 
 
     // customer.create(await amazonScrapper)
