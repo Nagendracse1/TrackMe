@@ -1,8 +1,9 @@
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 let defaultClient = SibApiV3Sdk.ApiClient.instance;
+const key = require('../apiKey');
 
 let apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = '*******';
+apiKey.apiKey = key();
 
 module.exports = async(product)=>{
 
