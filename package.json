@@ -17,6 +17,7 @@
     "got": "^10.4.0",
     "mongoose": "^5.13.6",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "sib-api-v3-sdk": "^8.2.1"
   }
 }
