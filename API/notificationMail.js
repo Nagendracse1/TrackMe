@@ -1,11 +1,52 @@
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 let defaultClient = SibApiV3Sdk.ApiClient.instance;
 const key = require('../apiKey');
+const customer = require('../models/customer'); 
+const amazonScrapper = require('../Scrapper/amazon');
+const flipkartScrapper = require('../Scrapper/flipkart');
 
 let apiKey = defaultClient.authentications['api-key'];
 apiKey.apiKey = key();
 
-module.exports = async(product)=>{
+module.exports = async()=>{ 
+    
+    for(email of await customer.find({})){
+        // console.log(typeof a, a);
+        for( product of email.product){
+            // console.log(product)
+            myFunction(email.email, product);
+        }
+    }; 
+};
+    
+async function myFunction(email,product){
+    
+
+        if(product.url.startsWith("https://www.amazon.in/")){
+
+            var CPrice = await amazonScrapper(encodeURI(product.url));
+        }
+        else if(product.url.startsWith("https://www.flipkart.com/")){
+    
+            var CPrice = await flipkartScrapper(encodeURI(product.url));
+        }
+        else if(product.url.startsWith("https://www.myntra.com/")){
+    
+            // var CPrice = await myntraScrapper(encodeURI(product.url));
+        }
+        else{
+            throw error;
+        }  
+        
+        if(product.initialPrice < CPrice.initialPrice){
+
+            await sendMail({email:email,name:product.name, price:CPrice.initialPrice})
+        }
+    
+};
+
+
+sendMail = async(product)=>{
 
     let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 

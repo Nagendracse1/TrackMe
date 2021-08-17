@@ -34,7 +34,7 @@ module.exports = async (url)=>{
             }
         }
         initialPrice = Number(initialPrice)
-        console.log(finalprice,typeof finalprice,initialPrice, typeof initialPrice);
+        console.log('----details from scrapper---',finalprice,typeof finalprice,initialPrice, typeof initialPrice);
 
         if(available =='In stock.'){
             available = true

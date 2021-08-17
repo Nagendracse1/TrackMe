@@ -51,9 +51,9 @@ module.exports = async (req, res)=>{
               console.log("---Details stored in db---");
 
               console.log('---sending notification---');
-
+            
               console.log(await subscribedMail({name:product.name, email:cus.email, price:product.initialPrice, url:product.url})); 
-
+            
               console.log('----notification sent----');              
 
          }

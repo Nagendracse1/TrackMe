@@ -4,6 +4,7 @@ const path = require('path');
 const { config, engine } = require('express-edge');
 config({ cache: process.env.NODE_ENV === 'production' });
 const mongoose = require('mongoose');
+const notificationMail = require('./API/notificationMail');
 
 
 mongoose.connect('mongodb://localhost/TrackMe');
@@ -27,7 +28,15 @@ app.get('/',homePageController);
 app.post('/form/store',storeController);
 
 
-app.listen(1007,()=>{
+function intervalFxn(){
+    console.log('-----Checking for price drop-----',new Date().toLocaleTimeString());
+    notificationMail();
 
+}
+// notificationMail();
+setInterval(intervalFxn, 60*10*1000);
+
+
+app.listen(1007,()=>{
     console.log("App listen on Port 1007");
 });
