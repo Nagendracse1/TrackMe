@@ -33,9 +33,10 @@ function intervalFxn(){
     notificationMail();
 
 }
-notificationMail();
-// setInterval(intervalFxn, 1*5*1000);
+// notificationMail();
+setInterval(intervalFxn, 60*60*1000);
 
+app.use((req, res)=> res.render('notFound'));
 
 app.listen(1007,()=>{
     console.log("App listen on Port 1007");
