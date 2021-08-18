@@ -33,8 +33,8 @@ function intervalFxn(){
     notificationMail();
 
 }
-// notificationMail();
-setInterval(intervalFxn, 60*10*1000);
+notificationMail();
+// setInterval(intervalFxn, 1*5*1000);
 
 
 app.listen(1007,()=>{

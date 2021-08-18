@@ -35,12 +35,18 @@ async function myFunction(email,product){
             // var CPrice = await myntraScrapper(encodeURI(product.url));
         }
         else{
-            throw error;
-        }  
+            return false;
+        }
         
-        if(product.initialPrice < CPrice.initialPrice){
+        if(!CPrice){
 
-            await sendMail({email:email,name:product.name, price:CPrice.initialPrice})
+            console.log('----Error in scrapping during notification(net. issue)----')
+        }
+
+        
+        if(product.initialPrice >= CPrice.initialPrice){
+
+            await sendMail({email:email,name:product.name, price:CPrice.initialPrice,url:product.url})
         }
     
 };

@@ -22,8 +22,13 @@ module.exports = async (req, res)=>{
         // var product = await myntraScrapper(encodeURI(req.body.url));
     }
     else{
-        throw error;
+        return res.redirect('/');
     }
+    if(!product){
+
+        console.log('----Error in scrapping(net. issue)----')
+        res.redirect('/');
+    } 
     console.log('----scrapping done----')
 
     var check
@@ -52,9 +57,15 @@ module.exports = async (req, res)=>{
 
               console.log('---sending notification---');
             
-              console.log(await subscribedMail({name:product.name, email:cus.email, price:product.initialPrice, url:product.url})); 
+              if(await subscribedMail({name:product.name, email:cus.email, price:product.initialPrice, url:product.url})){
+
+                console.log('----subscription mail sent----');              
+              }
+              else{
+                  console.log('----subscription mail not sent-----');
+              }
             
-              console.log('----notification sent----');              
+              
 
          }
      });

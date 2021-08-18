@@ -8,10 +8,11 @@ const { init } = require('../models/customer');
 module.exports = async (url)=>{
     var initialPrice = ''
     var name,available
-    
+    console.log('-----Scrapping started---');
+
     await rp(url,(err, res, body)=>{
 
-        if(err) throw err;
+        if(err) return false;
         console.log('statusCode:', res && res.statusCode);
 
         const $ = cheerio.load(body);
