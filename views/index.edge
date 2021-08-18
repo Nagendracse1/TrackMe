@@ -60,6 +60,8 @@
     </div>
   </section><!-- End About Section -->
 
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <script>  
     function validateform() {  
         var url=document.myform.url.value;  
@@ -68,13 +70,28 @@
         
         // console.log(url)
         if (url==null || url=="" || !(url.startsWith("https://www.amazon.in/") || url.startsWith("https://www.flipkart.com/"))){  
-          alert("invalid url");  
+          // alert("Please enter a valid url of Amazon & Flipkart.");
+          swal("Please enter a valid url of Amazon & Flipkart.");  
           return false;  
 
-        }else if(!filter.test(email)){  
-          alert("Please provide a valid email address");  
+        }
+        else if(!filter.test(email)){  
+          // alert("Please enter a valid email address");  
+          swal("Please enter a valid email address")
+          // swal("Good job!", "error");
+
           return false;  
           }  
+
+          const otp = require('../API/otpAuth');
+
+          let enterOtp = prompt("OTP send to your email, Please enter your OTP:");
+
+          if (enterOtp == null || enterOtp == "" || enterOtp!=otp) {
+            alert("invlaid otp");
+            return false
+          } 
+          return false
     }   
   </script> 
 
