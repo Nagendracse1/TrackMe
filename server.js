@@ -23,9 +23,13 @@ app.set('views',`${__dirname}/views`);
 
 const homePageController = require('./controllers/homePage');
 const storeController = require('./controllers/storeProductDetails');
+const emailExistController = require('./controllers/emailExist');
+const otpAuthController = require('./controllers/otpAuth');
 
 app.get('/',homePageController);
 app.post('/form/store',storeController);
+app.post('/emailExist',emailExistController);
+app.post('/otpAuth',otpAuthController);
 
 
 function intervalFxn(){

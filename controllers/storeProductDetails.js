@@ -74,7 +74,7 @@ module.exports = async (req, res)=>{
 
 
     // customer.create(await amazonScrapper)
-    
-    res.redirect('/');
+    res.send(product);
+    // res.redirect('/');
     }
 

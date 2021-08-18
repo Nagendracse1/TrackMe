@@ -12,7 +12,7 @@ module.exports = async(email)=>{
     let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
     let otp = generateOTP();
-    console.log('---authenticating----',otp);
+    console.log('---authenticating otp---->',otp);
     sendSmtpEmail.subject = "OTP!! TrackME";
     sendSmtpEmail.htmlContent = "<html><body><h1>Verify!!</h1><p>This is your OTP: "+otp+"</p></body></html>";
     sendSmtpEmail.sender = {"name":"TrackMe","email":"nagendra@trackme.com"};
@@ -32,7 +32,7 @@ module.exports = async(email)=>{
       console.error(error);
       
     });
-    // console.log(product.email, product.name, product.price)
+    console.log(email)
     return otp;
 }
 
@@ -42,5 +42,5 @@ function generateOTP() {
 	for (let i = 0; i < 4; i++ ) {
 		OTP += Math.floor(Math.random() * 10);
 	}
-	return Number(OTP);
+	return OTP;
 }
