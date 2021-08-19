@@ -36,7 +36,7 @@ const cheerio = require('cheerio');
 const request = require('request');
 
 
-request(encodeURI('https://www.amazon.in/dp/B07P6FV9XV/ref=s9_acsd_al_bw_c2_x_0_i?pf_rd_m=A1K21FY43GMZ[%E2%80%A6]f_rd_p=c52725a8-2f8f-4f19-8f2d-adff42acf701&pf_rd_i=3474656031'), function (error, response, body) {
+request({url: encodeURI('https://www.amazon.in/dp/B08LRDM44F/ref=s9_acsd_al_bw_c2_x_0_i?pf_rd_m=A1K21FY43GMZF8&pf_rd_s=merchandised-search-4&pf_rd_r=66JQV68N067ZXDD8F4WT&pf_rd_t=101&pf_rd_p=0d9bd1b8-0a59-4839-a3f9-38a902ab3e28&pf_rd_i=21634722031'),headers:{'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:80.0) Gecko/20100101 Firefox/80.0'} }, function (error, response, body) {
   console.log('-----amazon----');
   console.error('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -53,21 +53,21 @@ request(encodeURI('https://www.amazon.in/dp/B07P6FV9XV/ref=s9_acsd_al_bw_c2_x_0_
 });
 
 
-request('https://www.flipkart.com/harvard-full-sleeve-solid-men-jacket/p/itmed3a778baf007?pid=JCKFHHRNH6PYWRED&lid=LSTJCKFHHRNH6PYWREDDQ6ZVH', function (error, response, body) {
-  console.log('-----flipkart-----')
-  console.error('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  // console.log('body:', body); // Print the HTML for the Google homepage.
-  fs.writeFileSync('try.txt',body);
-  const $ =cheerio.load(body);
-    // console.log(response.body);
-    console.log('-------');
-    // fs.writeFileSync('try.txt',response.body);
-    const price = $('#container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div:nth-child(2) > div > div.dyC4hf > div.CEmiEU > div > div._30jeq3._16Jk6d').text();
-    const productName = $('#container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div:nth-child(2) > div > div:nth-child(1) > h1 > span').text().trim();
-    const available = $('#container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div:nth-child(2) > div > div._2JC05C').text().trim();
-    console.log(price, "\n", productName, "\n", available, "\n"); 
-});
+// request('https://www.flipkart.com/harvard-full-sleeve-solid-men-jacket/p/itmed3a778baf007?pid=JCKFHHRNH6PYWRED&lid=LSTJCKFHHRNH6PYWREDDQ6ZVH', function (error, response, body) {
+//   console.log('-----flipkart-----')
+//   console.error('error:', error); // Print the error if one occurred
+//   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+//   // console.log('body:', body); // Print the HTML for the Google homepage.
+//   fs.writeFileSync('try.txt',body);
+//   const $ =cheerio.load(body);
+//     // console.log(response.body);
+//     console.log('-------');
+//     // fs.writeFileSync('try.txt',response.body);
+//     const price = $('#container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div:nth-child(2) > div > div.dyC4hf > div.CEmiEU > div > div._30jeq3._16Jk6d').text();
+//     const productName = $('#container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div:nth-child(2) > div > div:nth-child(1) > h1 > span').text().trim();
+//     const available = $('#container > div > div._2c7YLP.UtUXW0._6t1WkM._3HqJxg > div._1YokD2._2GoDe3 > div._1YokD2._3Mn1Gg.col-8-12 > div:nth-child(2) > div > div._2JC05C').text().trim();
+//     console.log(price, "\n", productName, "\n", available, "\n"); 
+// });
 
 // request('https://www.myntra.com/mobile-stand', function (error, response, body) {
 //   console.log('-----myntra----');
