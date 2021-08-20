@@ -88,6 +88,19 @@
                     if(response=="true"){
 
                       console.log('---email exist--');
+                      swal({
+                            text: 'Please Wait',
+                            icon:"/assets/img/loader.gif",
+                            closeModal: false,
+                            closeOnClickOutside:false,
+                            buttons: false,
+                            
+                            // button: {
+                            //     // text: "verify!",
+                            //     closeModal: false,
+                            //   },
+                          })
+
 
                       $.post('/form/store',{email:email,url:url}, function(res){
                             // console.log(res)
@@ -112,6 +125,7 @@
                         swal({
                               text: 'Enter OTP that has been sent to your mail, for first time user only',
                               content: "input",
+                              closeOnClickOutside:false,
                               button: {
                                 text: "verify!",
                                 closeModal: false,
