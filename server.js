@@ -41,7 +41,7 @@ function intervalFxn(){
     notificationMail();
 
 }
-notificationMail();
+// notificationMail();
 // setInterval(intervalFxn, 60*60*1000);
 
 app.use((req, res)=> res.render('notFound'));

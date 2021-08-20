@@ -43,7 +43,7 @@ module.exports = async (url)=>{
         else available = false
         
     })
-    return {initialPrice:initialPrice,name:name,available:available, url:url};
+    return {initialPrice:initialPrice,name:name,available:available, url:url, currentPrice:initialPrice};
 }
 
 // #priceblock_dealprice

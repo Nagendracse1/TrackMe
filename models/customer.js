@@ -18,17 +18,16 @@ const customerSchema = new mongoose.Schema({
             require:true
         },
         initialPrice:Number,
-        currentPrice:{
-            type:Number,
-            default:99999999
-        },
+        // currentPrice:{
+        //     type:Number,
+        // },
         Time: {
             type:Date,
             default:new Date()
         },
         url:{
             type:String,
-            unique:true,
+            // unique:true,
             require:true,
         }
         

@@ -45,7 +45,7 @@ async function myFunction(email,product){
         }
 
         
-        if(product.initialPrice >= CPrice.initialPrice){
+        if(product.initialPrice > CPrice.initialPrice && product.currentPrice > CPrice.initialPrice){1
 
             await sendMail({email:email,name:product.name, price:CPrice.initialPrice,url:product.url,id:product._id})
         }
