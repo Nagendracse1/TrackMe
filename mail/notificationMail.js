@@ -45,8 +45,11 @@ async function myFunction(email,product){
         }
 
         
-        if(product.initialPrice > CPrice.initialPrice && product.currentPrice > CPrice.initialPrice){1
+        if(product.initialPrice > CPrice.initialPrice){
 
+            console.log('----price reduced condition passed----');
+            await customer.findOneAndUpdate({email:email,"product.url":product.url},{$set:{"product.$.currentTime":new Date()}});
+            
             await sendMail({email:email,name:product.name, price:CPrice.initialPrice,url:product.url,id:product._id})
         }
     

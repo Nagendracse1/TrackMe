@@ -21,9 +21,13 @@ const customerSchema = new mongoose.Schema({
         // currentPrice:{
         //     type:Number,
         // },
-        Time: {
+        time: {
             type:Date,
             default:new Date()
+        },
+        currentTime:{
+            type:Date,
+            default: new Date()
         },
         url:{
             type:String,
