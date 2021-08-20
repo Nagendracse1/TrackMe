@@ -92,7 +92,7 @@
                         // alert(res.name);
                         swal({
                               title: "Thank You!",
-                              text: res.name+"--->Rs:"+res.initialPrice+" has been registered" ,
+                              text: res.name+"--->Rs. "+res.initialPrice+" has been registered" ,
                               icon: "success",
                             });
 
@@ -131,7 +131,7 @@
                                             // alert(res.name);
                                             swal({
                                                   title: "Thank You!",
-                                                  text: res.name+"--->Rs:"+res.initialPrice+" has been registered" ,
+                                                  text: res.name+"--->Rs. "+res.initialPrice+" has been registered" ,
                                                   icon: "success",
                                                 });
 
@@ -183,8 +183,8 @@
         // console.log(url)
         // console.log('----validate url------')
         if (url==null || url=="" || !(url.startsWith("https://www.amazon.in/") || url.startsWith("https://www.flipkart.com/"))){  
-          // alert("Please enter a valid url of Amazon & Flipkart.");
-          swal("Please enter a valid url of Amazon & Flipkart.");  
+          // alert("Please enter a valid url of Amazon  Flipkart.");
+          swal("Please enter a valid url of Amazon OR Flipkart.");  
           return false;  
 
         }
