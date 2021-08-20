@@ -28,7 +28,7 @@ const customerSchema = new mongoose.Schema({
         },
         url:{
             type:String,
-            // unique:true,
+            unique:true,
             require:true,
         }
         

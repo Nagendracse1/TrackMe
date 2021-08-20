@@ -4,7 +4,7 @@ const path = require('path');
 const { config, engine } = require('express-edge');
 config({ cache: process.env.NODE_ENV === 'production' });
 const mongoose = require('mongoose');
-const notificationMail = require('./API/notificationMail');
+const notificationMail = require('./mail/notificationMail');
 
 
 mongoose.connect('mongodb://localhost/TrackMe');
@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 
+
 app.set('views',`${__dirname}/views`);
 
 
@@ -25,11 +26,14 @@ const homePageController = require('./controllers/homePage');
 const storeController = require('./controllers/storeProductDetails');
 const emailExistController = require('./controllers/emailExist');
 const otpAuthController = require('./controllers/otpAuth');
+const unsubscribeController = require('./controllers/unsubscribed');
 
 app.get('/',homePageController);
 app.post('/form/store',storeController);
 app.post('/emailExist',emailExistController);
 app.post('/otpAuth',otpAuthController);
+app.get('/unsubscribe/:id', unsubscribeController);
+
 
 
 function intervalFxn(){

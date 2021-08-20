@@ -9,10 +9,11 @@ module.exports = async (url)=>{
     var initialPrice = ''
     var name,available
     console.log('-----Scrapping started---');
-    await rp(url,(err, res, body)=>{
+
+    await rp({url:url, headers:{'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:80.0) Gecko/20100101 Firefox/80.0'} },(err, res, body)=>{
 
         if(err) return false;
-        // console.log('statusCode:', res && res.statusCode);
+        console.log('statusCode:', res && res.statusCode);
 
         const $ = cheerio.load(body);
 
@@ -34,7 +35,7 @@ module.exports = async (url)=>{
             }
         }
         initialPrice = Number(initialPrice)
-        console.log('----details from scrapper---',finalprice,typeof finalprice,initialPrice, typeof initialPrice);
+        console.log('----details from scrapper---',finalprice,typeof finalprice,initialPrice, typeof initialPrice, name);
 
         if(available =='In stock.'){
             available = true

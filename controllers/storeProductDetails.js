@@ -1,11 +1,14 @@
 const amazonScrapper = require('../Scrapper/amazon');
 const flipkartScrapper = require('../Scrapper/flipkart');
 const customer = require('../models/customer');
-const notificationMail = require('../API/notificationMail');
-const subscribedMail = require('../API/subscriptionMail');
+const notificationMail = require('../mail/notificationMail');
+const subscribedMail = require('../mail/subscriptionMail');
+const mongoose = require('mongoose');
+
 
 module.exports = async (req, res)=>{
     console.log('\n\n\n----',req.body.email);
+    // console.log(await customer.findOne({"product._id":mongoose.Types.ObjectId("611e8d2d8058680c2b93dcc9")}));
 
     var urlType = req.body.url;
 
@@ -53,6 +56,7 @@ module.exports = async (req, res)=>{
       customer.findOneAndUpdate({email:req.body.email}, {$push:{product:product}},async(err, cus)=>{
          if(err) throw err
          if(cus){
+            // console.log(await customer.find({product:{url:product.url}}),product.url);
               console.log("---Details stored in db---");
 
               console.log('---sending notification---');

@@ -62,6 +62,8 @@
   </section><!-- End About Section -->
 
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script> 
@@ -79,16 +81,29 @@
                  
                 try {
 
-                  console.log('----exist---');
+                  // console.log('----exist---');
                 
                   $.post('/emailExist',{email:email}, function(response){
                     // alert("res: " + response); 
                     if(response=="true"){
 
                       console.log('---email exist--');
+                      swal({
+                            text: 'Please Wait',
+                            icon:"/assets/img/loader.gif",
+                            closeModal: false,
+                            closeOnClickOutside:false,
+                            buttons: false,
+                            
+                            // button: {
+                            //     // text: "verify!",
+                            //     closeModal: false,
+                            //   },
+                          })
+
 
                       $.post('/form/store',{email:email,url:url}, function(res){
-
+                            // console.log(res)
                         // alert(res.name);
                         swal({
                               title: "Thank You!",
@@ -97,6 +112,7 @@
                             });
 
                       })
+                      
                     }
                     else{
 
@@ -109,6 +125,7 @@
                         swal({
                               text: 'Enter OTP that has been sent to your mail, for first time user only',
                               content: "input",
+                              closeOnClickOutside:false,
                               button: {
                                 text: "verify!",
                                 closeModal: false,
@@ -155,6 +172,7 @@
                     
                   });
                   console.log('-----');
+                  
                   
                 } catch (error) {
 
