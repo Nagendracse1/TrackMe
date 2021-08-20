@@ -105,11 +105,30 @@
                       $.post('/form/store',{email:email,url:url}, function(res){
                             // console.log(res)
                         // alert(res.name);
-                        swal({
-                              title: "Thank You!",
-                              text: res.name+"--->Rs:"+res.initialPrice+" has been registered" ,
-                              icon: "success",
+                        if(res=="product already registered")
+                        {
+                          swal({
+                              title: "Already Registered",
+                              text: "Please try different product",
+                              icon: "error",
                             });
+                          }
+                          else if(res=="Error in scrapping"){
+
+                            swal({
+                              title: "Something Went Wrong",
+                              text: "Try after sometime",
+                              icon: "error",
+                            });
+
+                          }
+                          else{           
+                              swal({
+                                    title: "Thank You!",
+                                    text: res.name+"--->Rs:"+res.initialPrice+" has been registered" ,
+                                    icon: "success",
+                                  });
+                          }
 
                       })
                       

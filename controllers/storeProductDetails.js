@@ -14,7 +14,7 @@ module.exports = async (req, res)=>{
         console.log('-----url from db----')
         if(b.url == encodeURI(req.body.url)) {
             console.log('------url already exist------');
-            return res.send(false)
+            return res.send("product already registered");
         };
     }
 
@@ -39,10 +39,11 @@ module.exports = async (req, res)=>{
     else{
         return res.redirect('/');
     }
+    // console.log('------',product);
     if(!product){
 
         console.log('----Error in scrapping(net. issue)----')
-        res.redirect('/');
+        return res.send("Error in scrapping");
     } 
     console.log('----scrapping done----')
 
