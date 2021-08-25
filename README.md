@@ -1,4 +1,4 @@
-[Amazon & Flipkart Price Tracker](https://track--me.herokuapp.com/) 
+[Amazon & Flipkart Price Tracker](https://yourtrackme.herokuapp.com/) 
 ==============
 
 This web app is used to fetch the real time price of products from e-commerce websites according to users preferences and send notification to the customer whenever the price of that product decreases.
