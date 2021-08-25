@@ -1,4 +1,4 @@
-const optAuth = require('../mail/otpAuth');
+const optAuth = require('../email/otpAuth');
 
 module.exports = async(req, res)=>{
 

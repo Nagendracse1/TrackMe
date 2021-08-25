@@ -4,7 +4,7 @@ const path = require('path');
 const { config, engine } = require('express-edge');
 config({ cache: process.env.NODE_ENV === 'production' });
 const mongoose = require('mongoose');
-const notificationMail = require('./mail/notificationMail');
+const notificationMail = require('./email/notificationMail');
 var configDb = require('./config/db');
 
 

@@ -1,8 +1,8 @@
 const amazonScrapper = require('../Scrapper/amazon');
 const flipkartScrapper = require('../Scrapper/flipkart');
 const customer = require('../models/customer');
-const notificationMail = require('../mail/notificationMail');
-const subscribedMail = require('../mail/subscriptionMail');
+const notificationMail = require('../email/notificationMail');
+const subscribedMail = require('../email/subscriptionMail');
 const mongoose = require('mongoose');
 
 

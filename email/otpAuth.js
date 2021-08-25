@@ -14,7 +14,7 @@ module.exports = async(email)=>{
     let otp = generateOTP();
     console.log('---authenticating otp---->',otp);
     sendSmtpEmail.subject = "OTP!! TrackME";
-    sendSmtpEmail.htmlContent = "<html><body><h1>Verify!!</h1><p>This is your OTP: "+otp+"</p></body></html>";
+    sendSmtpEmail.htmlContent = "<html><body><h1>Verify!!</h1><p>This is your TrackMe OTP: "+otp+"</p></body></html>";
     sendSmtpEmail.sender = {"name":"TrackMe","email":"nagendra@trackme.com"};
     sendSmtpEmail.to = [{"email":email,"name":"Mate!"}];
     // sendSmtpEmail.cc = [{"email":"example2@example2.com","name":"Janice Doe"}];
