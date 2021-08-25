@@ -8,6 +8,14 @@ const customerSchema = new mongoose.Schema({
         require:true,
         unique:true
     },
+    registeredProduct:{
+        type:Number,
+        default:0
+    },
+    unsubscribedProduct:{
+        tyep:Number,
+        default:0
+    },
     product:[{
         name:{
             type:String,

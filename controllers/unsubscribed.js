@@ -17,6 +17,7 @@ module.exports = async (req, res)=>{
 
     }
     await customer.findOneAndUpdate({email:email}, {$pull:{product:{_id:productId}}});
+    await customer.findOneAndUpdate({email:email}, {$inc:{unsubscribedProduct:1}});
     console.log(email,'------unsubscribed---',productId)
 
     res.render('unsubscribe');

@@ -79,6 +79,8 @@ module.exports = async (req, res)=>{
             // console.log(await customer.find({product:{url:product.url}}),product.url);
               console.log("---Details stored in db---");
 
+              await customer.findOneAndUpdate({email:req.body.email}, {$inc:{registeredProduct:1}});
+
               console.log('---sending notification---');
             
               if(await subscribedMail({name:product.name, email:cus.email, price:product.initialPrice, url:product.url})){
