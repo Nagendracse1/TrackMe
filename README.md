@@ -12,6 +12,27 @@ Install the project dependencies:
 ```
 npm install
 ```
+Add file
+```
+create folder with name config and create two file with name 
+* apikey.js 
+* db.js
+```
+Insert code in apiKey.js
+```
+module.exports = ()=>{
+    return "Enter your API key" ;
+}
+```
+Insert code in db.js
+```
+module.exports = {
+
+    getDbConnectionString: function(){
+        return 'Enter your connection string';
+    }
+}
+```
 
 #### Run the script
 ```
