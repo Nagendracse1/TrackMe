@@ -8,15 +8,22 @@ const mongoose = require('mongoose');
 
 module.exports = async (req, res)=>{
     console.log('\n\n\n----',req.body.email,'\n');
+
+
     dupproduct = await customer.findOne({email:req.body.email});
-    var a = dupproduct.product
-    for(b of a){
-        console.log('-----url from db----')
-        if(b.url == encodeURI(req.body.url)) {
-            console.log('------url already exist------');
-            return res.send("product already registered");
-        };
+    if( dupproduct)
+    {
+        var a = dupproduct.product
+        for(b of a){
+            console.log('-----url from db----')
+            if(b.url == encodeURI(req.body.url)) {
+                console.log('------url already exist------');
+                return res.send("product already registered");
+            };
+        }
     }
+
+    
 
     // if(dupproduct.email== req.body.email){
     //     res.send(false);

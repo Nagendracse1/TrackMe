@@ -1,6 +1,6 @@
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 let defaultClient = SibApiV3Sdk.ApiClient.instance;
-const key = require('../apiKey');
+const key = require('../config/apiKey');
 const customer = require('../models/customer'); 
 const amazonScrapper = require('../Scrapper/amazon');
 const flipkartScrapper = require('../Scrapper/flipkart');

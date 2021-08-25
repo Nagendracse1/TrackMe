@@ -5,9 +5,12 @@ const { config, engine } = require('express-edge');
 config({ cache: process.env.NODE_ENV === 'production' });
 const mongoose = require('mongoose');
 const notificationMail = require('./mail/notificationMail');
+var configDb = require('./config/db');
 
 
-mongoose.connect('mongodb://localhost/TrackMe');
+
+// mongoose.connect('mongodb://localhost/TrackMe');
+mongoose.connect(configDb.getDbConnectionString());
 
 const app = new express();
 
