@@ -8,23 +8,23 @@ This web app is used to fetch the real time price of products from e-commerce we
 https://nodejs.org/
 ```
 
-Install the project dependencies: 
+#### Install the project dependencies: 
 ```
 npm install
 ```
-Add file
+#### Add file
 ```
-create folder with name config and create two file with name 
-* apikey.js 
-* db.js
+create folder with name config in root directory and create two file in config folder with name 
+1.apikey.js 
+2.db.js
 ```
-Insert code in apiKey.js
+#### Insert code in apiKey.js
 ```
 module.exports = ()=>{
     return "Enter your API key" ;
 }
 ```
-Insert code in db.js
+#### Insert code in db.js
 ```
 module.exports = {
 
