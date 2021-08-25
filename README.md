@@ -46,3 +46,5 @@ node server.js
 * New pop up appear when product successfully register & you will also get a subscribtion with product detail on your registered email.
 * Whenever the price decreases, you will get a notification mail automatically.
 
+##### Hit Url every 30 min with the help of [kaffeine](http://kaffeine.herokuapp.com/#!).
+
