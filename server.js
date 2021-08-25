@@ -46,6 +46,6 @@ setInterval(intervalFxn, 3*60*60*1000);
 
 app.use((req, res)=> res.render('notFound'));
 
-app.listen(1007,()=>{
+app.listen(process.env.PORT || 1007,()=>{
     console.log("App listen on Port 1007");
 });
